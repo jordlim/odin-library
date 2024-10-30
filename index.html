@@ -26,35 +26,28 @@
                     Yes
                 </span>
             </div>
-            <div class="book">
-                <span id="title">
-                    Title
-                </span>
-                <span id="author">
-                    Author
-                </span>
-                <span id="pages">
-                    # pages
-                </span>
-                <span id="read">
-                    Yes
-                </span>
-            </div>
-            <div class="book">
-                <span id="title">
-                    Title
-                </span>
-                <span id="author">
-                    Author
-                </span>
-                <span id="pages">
-                    # pages
-                </span>
-                <span id="read">
-                    Yes
-                </span>
-            </div>
         </div>
+
+        <dialog>
+            <button autofocus>Close</button>
+            <form>
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title"><br>
+
+                <label for="author">Author:</label><br>
+                <input type="text" id="author" name="author"><br>
+
+                <label for="pages">Pages:</label><br>
+                <input type="number" min="1" id="pages" name="pages"><br>
+                <label for="author">Read?</label><br>
+                <input type="checkbox" id="read" name="read"><br>
+                <input type="submit" value="Submit">
+            </form>
+            
+        </dialog>
+
+        <button>+</button>
     </div>
 </body>
+<script src="library.js"></script>
 </html>

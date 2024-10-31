@@ -1,4 +1,5 @@
 const library = [
+  new Book("Test", "Test", 0, "yes")
 ];
 
 function Book(title, author, pages, read) {
@@ -15,20 +16,12 @@ function Book(title, author, pages, read) {
 }
 
 
+let books = document.getElementsByClassName("books");
 
 function render() {
-
-  // Test book
-  const book = new Book("Test", "Test", 0, "yes");
-  library.push(book);
-
-  let books = document.getElementsByClassName("books");
-
-  
-  // books[0].style.backgroundColor = "red";
-
-  console.log(books);
   for (var b of library) {
+    console.log(b);
+
     const newBook = document.createElement("div");
     newBook.classList.add("book");
 
@@ -57,21 +50,28 @@ function render() {
   }
 }
 
-function addBook() {
-  // do stuff here
+function addBook(title, author, pages, read) {
+  let newBook = new Book(title, author, pages, read);
+  library.push(newBook);
+  render();
 }
 
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
-const closeButton = document.querySelector("dialog button");
+const submitButton = document.querySelector("dialog button");
 
-// "Show the dialog" button opens the dialog modally
 showButton.addEventListener("click", () => {
   dialog.showModal();
 });
 
-// "Close" button closes the dialog
-closeButton.addEventListener("click", () => {
+submitButton.addEventListener("click", () => {
+  let title = document.getElementById('title');
+  console.log(title);
+  let author = document.getElementById('author');
+  let pages = document.getElementById('pages');
+  let read = document.getElementById('read');
+  addBook(title, author, pages, read);
+  console.log("adding");
   dialog.close();
 });
 

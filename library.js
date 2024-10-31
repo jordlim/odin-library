@@ -95,7 +95,11 @@ form.addEventListener("submit", function(event) {
   let pages = pagesField.value;
 
   let readField = form.elements['f_read'];
-  let read = readField.value;
+  let read = readField.checked;
+  if (read)
+    read = "yes";
+  else
+    read = "no";
 
   addBook(title, author, pages, read);
 

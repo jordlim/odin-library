@@ -1,5 +1,5 @@
 const library = [
-  new Book("Test", "Test", 0, "yes")
+  new Book("Essentialism: The Disciplined Pursuit of Less", "Greg McKeown", 304, "yes")
 ];
 
 function Book(title, author, pages, read) {
@@ -14,7 +14,6 @@ function Book(title, author, pages, read) {
         return this.title+" by "+this.author+", "+pages+" pages, " +"not read";
   }
 }
-
 
 let books = document.getElementsByClassName("books");
 
@@ -65,20 +64,6 @@ const submitButton = document.querySelector("dialog button");
 showButton.addEventListener("click", () => {
   dialog.showModal();
 });
-
-// submitButton.addEventListener("click", () => {
-//   event.preventDefault();
-
-  
-//   let title = document.getElementById('f_title');
-
-//   let author = document.getElementById('f_author');
-//   let pages = document.getElementById('f_pages');
-//   let read = document.getElementById('f_read');
-//   addBook(title.textContent, author.textContent, pages.textContent, read.textContent);
-  
-//   dialog.close();
-// });
 
 let form = document.getElementById("book_form");
 form.addEventListener("submit", function(event) {

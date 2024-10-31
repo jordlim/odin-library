@@ -29,20 +29,22 @@
             </div> -->
         </div>
         <dialog>
-            <form>
+            <form id="book_form">
                 <label for="title">Title:</label><br>
-                <input type="text" id="title" name="title"><br>
+                <input type="text" id="f_title" name="f_title"><br>
 
                 <label for="author">Author:</label><br>
-                <input type="text" id="author" name="author"><br>
+                <input type="text" id="f_author" name="f_author"><br>
 
                 <label for="pages">Pages:</label><br>
-                <input type="number" min="1" id="pages" name="pages"><br>
+                <input type="number" min="1" id="f_pages" name="f_pages"><br>
 
                 <label for="author">Read?</label><br>
-                <input type="checkbox" id="read" name="read"><br>
+                <input type="checkbox" id="f_read" name="f_read"><br>
+
+                <input autofocus type="submit"></input>
             </form>
-            <button autofocus type="submit">Submit</button>
+            
         </dialog>
         <button>+</button>
     </div>

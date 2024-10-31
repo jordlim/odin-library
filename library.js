@@ -52,6 +52,7 @@ function render() {
 
 function addBook(title, author, pages, read) {
   let newBook = new Book(title, author, pages, read);
+  console.log(title);
   library.push(newBook);
   books[0].textContent = "";
   render();
@@ -65,16 +66,42 @@ showButton.addEventListener("click", () => {
   dialog.showModal();
 });
 
-submitButton.addEventListener("click", () => {
-  let title = document.getElementById('title');
-  console.log(title);
-  let author = document.getElementById('author');
-  let pages = document.getElementById('pages');
-  let read = document.getElementById('read');
-  addBook(title, author, pages, read);
+// submitButton.addEventListener("click", () => {
+//   event.preventDefault();
+
   
+//   let title = document.getElementById('f_title');
+
+//   let author = document.getElementById('f_author');
+//   let pages = document.getElementById('f_pages');
+//   let read = document.getElementById('f_read');
+//   addBook(title.textContent, author.textContent, pages.textContent, read.textContent);
+  
+//   dialog.close();
+// });
+
+let form = document.getElementById("book_form");
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  
+
+  let titleField = form.elements['f_title'];
+  let title = titleField.value;
+
+  let authorField = form.elements['f_author'];
+  let author = authorField.value;
+
+  let pagesField = form.elements['f_pages'];
+  let pages = pagesField.value;
+
+  let readField = form.elements['f_read'];
+  let read = readField.value;
+
+  addBook(title, author, pages, read);
+
+  form.reset();
+
   dialog.close();
 });
-
 
 render();

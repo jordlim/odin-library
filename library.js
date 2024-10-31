@@ -53,6 +53,7 @@ function render() {
 function addBook(title, author, pages, read) {
   let newBook = new Book(title, author, pages, read);
   library.push(newBook);
+  books[0].textContent = "";
   render();
 }
 
@@ -71,7 +72,7 @@ submitButton.addEventListener("click", () => {
   let pages = document.getElementById('pages');
   let read = document.getElementById('read');
   addBook(title, author, pages, read);
-  console.log("adding");
+  
   dialog.close();
 });
 

@@ -7,6 +7,7 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+
   this.info = function() {
     if (read == True)
         return this.title+" by "+this.author+", "+pages+" pages, " +"read";
@@ -18,9 +19,12 @@ function Book(title, author, pages, read) {
 let books = document.getElementsByClassName("books");
 
 function render() {
-  for (var b of library) {
-    console.log(b);
+  // Clear all books before rendering
+  books[0].textContent = "";
 
+  // Reset IDs for buttons
+  let id = 0;
+  for (var b of library) {
     const newBook = document.createElement("div");
     newBook.classList.add("book");
 
@@ -43,17 +47,40 @@ function render() {
     readSpan.innerHTML = b.read;
     readSpan.id = "read";
     newBook.appendChild(readSpan);
-    
+  
+    const markRead = document.createElement("button");
+    markRead.innerHTML = "Read?";
+    markRead.id = "markRead";
+    newBook.appendChild(markRead);
+
+    const removeBook = document.createElement("button");
+    removeBook.innerHTML = "X";
+    removeBook.classList.add("removeBook");
+    removeBook.dataset.id = id;
+    newBook.appendChild(removeBook);
+
     // Used getElementsByClassName -> books is an array
     books[0].appendChild(newBook);
+
+    // Increment ID to associate DOM elements to book objects
+    id += 1;
   }
 }
 
+// const remove = document.querySelector(".removeBook");
+// remove.addEventListener("click", () => {
+//   console.log("clicked");
+//   library.splice(remove.dataset.id, 1);
+
+//   render();
+// });
+
+
+
 function addBook(title, author, pages, read) {
   let newBook = new Book(title, author, pages, read);
-  console.log(title);
   library.push(newBook);
-  books[0].textContent = "";
+
   render();
 }
 

@@ -81,6 +81,16 @@ body {
 }
 
 .book>#read {
+
     text-align: right;
-    padding-top: 176px;
+}
+
+
+#markRead {
+    text-align: center;
+}
+
+.removeBook {
+    background-color: red;
+    text-align: center;
 }

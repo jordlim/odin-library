@@ -18,8 +18,6 @@ function Book(title, author, pages, read) {
 
 let books = document.getElementsByClassName("books");
 
-const removeBook = document.createElement("button");
-
 function render() {
   // Clear all books before rendering
   books[0].textContent = "";
@@ -55,28 +53,27 @@ function render() {
     markRead.id = "markRead";
     newBook.appendChild(markRead);
 
-    
+    const removeBook = document.createElement("button");
     removeBook.innerHTML = "X";
     removeBook.classList.add("removeBook");
     removeBook.dataset.id = id;
     newBook.appendChild(removeBook);
-
-    
 
     // Used getElementsByClassName -> books is an array
     books[0].appendChild(newBook);
 
     // Increment ID to associate DOM elements to book objects
     id += 1;
+
+    removeBook.onclick = function() {
+      library.splice(removeBook.dataset.id, 1);
+      render();
+    };
+    
   }
 }
 
-removeBook.onclick = function() {
-  console.log("clicked");
-  library.splice(removeBook.dataset.id, 1);
 
-  render();
-};
 
 
 

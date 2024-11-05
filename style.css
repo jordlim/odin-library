@@ -81,14 +81,8 @@ body {
     font-weight: 600;
 }
 
-.book>#read {
-
-    text-align: right;
-}
-
-#markRead, .removeBook {
-    width: 32px;
-    height: 32px;
+.book>#pages {
+    padding-bottom: 64px;
 }
 
 #markRead {
@@ -106,6 +100,9 @@ body {
 }
 
 .removeBook {
+    width: 32px;
+    height: 32px;
+
     border: none;
     background: transparent;
     text-align: center;

@@ -1,5 +1,5 @@
 const library = [
-  new Book("Essentialism: The Disciplined Pursuit of Less", "Greg McKeown", 304, "yes")
+  new Book("Essentialism: The Disciplined Pursuit of Less", "Greg McKeown", 304, "Read")
 ];
 
 function Book(title, author, pages, read) {
@@ -53,13 +53,13 @@ function render() {
     pagesSpan.id = "pages";
     newBook.appendChild(pagesSpan);
 
-    const readSpan = document.createElement("span");
-    readSpan.innerHTML = b.read;
-    readSpan.id = "read";
-    newBook.appendChild(readSpan);
+    // const readSpan = document.createElement("span");
+    // readSpan.innerHTML = b.read;
+    // readSpan.id = "read";
+    // newBook.appendChild(readSpan);
   
     const markRead = document.createElement("button");
-    markRead.innerHTML = "Read?";
+    markRead.innerHTML = b.read;
     markRead.id = "markRead";
     newBook.appendChild(markRead);
 
@@ -71,6 +71,15 @@ function render() {
 
     removeBook.onclick = function() {
       library.splice(removeBook.dataset.id, 1);
+      render();
+    };
+
+    markRead.onclick = function() {
+      console.log("read");
+      if (b.read == "Read")
+        b.read = "Unread";
+      else
+        b.read = "Read";
       render();
     };
     
@@ -110,9 +119,9 @@ form.addEventListener("submit", function(event) {
   let readField = form.elements['f_read'];
   let read = readField.checked;
   if (read)
-    read = "yes";
+    read = "Read";
   else
-    read = "no";
+    read = "Unread";
 
   addBook(title, author, pages, read);
 

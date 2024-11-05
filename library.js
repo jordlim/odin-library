@@ -28,6 +28,16 @@ function render() {
     const newBook = document.createElement("div");
     newBook.classList.add("book");
 
+    
+    const removeBook = document.createElement("button");
+    removeBook.innerHTML = "X";
+    removeBook.classList.add("removeBook");
+    removeBook.dataset.id = id;
+    const removeDiv = document.createElement("div");
+    removeDiv.classList.add("removeDiv");
+    removeDiv.append(removeBook);
+    newBook.appendChild(removeDiv);
+
     const titleSpan = document.createElement("span");
     titleSpan.innerHTML = b.title;
     titleSpan.id = "title";
@@ -53,12 +63,6 @@ function render() {
     markRead.id = "markRead";
     newBook.appendChild(markRead);
 
-    const removeBook = document.createElement("button");
-    removeBook.innerHTML = "X";
-    removeBook.classList.add("removeBook");
-    removeBook.dataset.id = id;
-    newBook.appendChild(removeBook);
-
     // Used getElementsByClassName -> books is an array
     books[0].appendChild(newBook);
 
@@ -72,10 +76,6 @@ function render() {
     
   }
 }
-
-
-
-
 
 
 function addBook(title, author, pages, read) {
